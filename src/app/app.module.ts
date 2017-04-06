@@ -1,3 +1,4 @@
+import { UserService } from './../shared/user.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -5,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
@@ -31,9 +33,12 @@ const firebaseAuthConfig = {
     FormsModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseDatabaseConfig, firebaseAuthConfig),
-    MaterialModule,
+    MaterialModule.forRoot(),
+    // RouterModule.forRoot([
+    //   {},
+    // ])
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
