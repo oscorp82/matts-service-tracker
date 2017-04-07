@@ -9,6 +9,7 @@ import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 
 var firebaseDatabaseConfig = {
   apiKey: "AIzaSyBgVypNqnFjFt5u__PwLAOwhibOIwWss1o",
@@ -26,7 +27,8 @@ const firebaseAuthConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
