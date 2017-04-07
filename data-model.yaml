@@ -1,0 +1,20 @@
+user-vehicle:
+    user.guid:
+        vehicle.guid:
+            vehicle-make: true
+            vehicle-model: true
+            vehicle-year: true
+
+vehicle-service:
+  vehicle.guid:
+    service-guid:
+      service-name: true
+      service-date: true
+      service-cost: true
+
+service-parts:
+  service-guid:
+    part-guid:
+      part-name: true
+      part-number: true
+      part-cost: true         
