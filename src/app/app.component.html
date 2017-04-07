@@ -1,9 +1,18 @@
-<h2>
-  {{title}}
-</h2>
-
 <md-toolbar>
-  <button md-button (click)="login()">Login</button>
-  <button md-button (click)="logout()">Logout</button>
-  <img *ngIf="user.uid" class="userimg" src="{{user.photoURL}}"> {{user.name}}
+  <md-toolbar-row>
+    <h2>
+      {{title}}
+    </h2>
+    <span class="user-spacer"></span>
+    <span class="user-info">
+      <button md-button *ngIf="!user.uid" (click)="login()">Login</button>
+      <button md-button *ngIf="user.uid" (click)="logout()">Logout</button>
+    </span>
+  </md-toolbar-row>
+  <md-toolbar-row>
+    <span class="user-spacer"></span>
+    <span class="user-info">  
+      <img *ngIf="user.uid" class="userimg" src="{{user.photoURL}}"> {{user.name}}
+    </span>
+  </md-toolbar-row>
 </md-toolbar>
