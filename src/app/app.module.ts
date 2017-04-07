@@ -36,9 +36,14 @@ const firebaseAuthConfig = {
     HttpModule,
     AngularFireModule.initializeApp(firebaseDatabaseConfig, firebaseAuthConfig),
     MaterialModule.forRoot(),
-    // RouterModule.forRoot([
-    //   {},
-    // ])
+    RouterModule.forRoot([
+      {
+        path: "", component: HomeComponent
+      },
+      {
+        path: "**", component: HomeComponent
+      },
+    ])
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

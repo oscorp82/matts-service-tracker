@@ -1,3 +1,4 @@
-<p>
-  home works!
+<p *ngIf="!user.uid">Welcome!</p>
+<p *ngIf="user.uid">
+  Welcome back!
 </p>
