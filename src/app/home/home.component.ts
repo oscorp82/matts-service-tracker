@@ -1,5 +1,5 @@
 import { Vehicle } from './../../shared/vehicle';
-import { HomeService } from './home.service';
+import { VehicleService } from '../vehicle/vehicle.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../shared/user';
 import { UserService } from '../../shared/user.service';
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   newModel: string;
   newYear: string;
 
-  constructor(private userService: UserService, private homeService: HomeService) { }
+  constructor(private userService: UserService, private homeService: VehicleService) { }
 
   ngOnInit() {
     this.userService.user$

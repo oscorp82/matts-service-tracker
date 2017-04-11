@@ -6,7 +6,7 @@ import { AngularFire } from 'angularfire2';
 import { UserService } from '../../shared/user.service';
 
 @Injectable()
-export class HomeService {
+export class VehicleService {
   user: User;
   constructor(private af: AngularFire, private userService: UserService) { }
 
@@ -35,6 +35,15 @@ export class HomeService {
       model: vehicle.model,
       year: vehicle.year,
     }));
+  }
+
+  deleteVehicle(vehId: string) {
+    const vehicle = this.af.database.object(`user-vehicles/${this.userService.user.uid}/vehicles/${vehId}`);
+    vehicle.remove();
+  }
+
+  getVehicle(vehId: string): Observable<any>{
+    return this.af.database.object(`user-vehicles/${this.userService.user.uid}/vehicles/${vehId}`)
   }
 
 }

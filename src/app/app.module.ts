@@ -1,4 +1,4 @@
-import { HomeService } from './home/home.service';
+import { VehicleService } from './vehicle/vehicle.service';
 import { UserService } from './../shared/user.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -10,7 +10,9 @@ import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from "./home/home.component";
+import { VehicleComponent } from './vehicle/vehicle.component';
+import { ServiceDoneComponent } from './service-done/service-done.component';
 
 var firebaseDatabaseConfig = {
   apiKey: "AIzaSyBgVypNqnFjFt5u__PwLAOwhibOIwWss1o",
@@ -29,7 +31,9 @@ const firebaseAuthConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    VehicleComponent,
+    ServiceDoneComponent
   ],
   imports: [
     BrowserModule,
@@ -39,14 +43,17 @@ const firebaseAuthConfig = {
     MaterialModule.forRoot(),
     RouterModule.forRoot([
       {
-        path: "", component: HomeComponent
+        path: "", children: [
+          { path: "", component: HomeComponent },
+          { path: ":id", component: VehicleComponent }
+        ]
       },
       {
         path: "**", component: HomeComponent
       },
     ])
   ],
-  providers: [UserService, HomeService],
+  providers: [UserService, VehicleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
