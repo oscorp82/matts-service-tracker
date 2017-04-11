@@ -1,7 +1,7 @@
 import { VehicleService } from './vehicle/vehicle.service';
 import { UserService } from './../shared/user.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
@@ -12,7 +12,8 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from "./home/home.component";
 import { VehicleComponent } from './vehicle/vehicle.component';
-import { ServiceDoneComponent } from './service-done/service-done.component';
+import { VehicleServiceComponent } from './vehicle-service/vehicle-service.component';
+import { ServicePartsComponent } from './service-parts/service-parts.component';
 
 var firebaseDatabaseConfig = {
   apiKey: "AIzaSyBgVypNqnFjFt5u__PwLAOwhibOIwWss1o",
@@ -33,7 +34,8 @@ const firebaseAuthConfig = {
     AppComponent,
     HomeComponent,
     VehicleComponent,
-    ServiceDoneComponent
+    VehicleServiceComponent,
+    ServicePartsComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,19 @@ const firebaseAuthConfig = {
       {
         path: "", children: [
           { path: "", component: HomeComponent },
-          { path: ":id", component: VehicleComponent }
+          { path: ":id", component: VehicleComponent },
+          {
+            path: "vehicle-services", children: [
+              { path: "", component: VehicleComponent },
+              { path: ":id", component: VehicleServiceComponent },
+              {
+                path: "service-parts", children: [
+                  { path: "", component: VehicleServiceComponent },
+                  { path: ":id", component: ServicePartsComponent },
+                ]
+              },
+            ]
+          },
         ]
       },
       {
