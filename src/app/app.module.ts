@@ -48,20 +48,22 @@ const firebaseAuthConfig = {
         path: "", children: [
           { path: "", component: HomeComponent },
           { path: ":id", component: VehicleComponent },
-          {
-            path: "vehicle-services", children: [
-              { path: "", component: VehicleComponent },
-              { path: ":id", component: VehicleServiceComponent },
-              {
-                path: "service-parts", children: [
-                  { path: "", component: VehicleServiceComponent },
-                  { path: ":id", component: ServicePartsComponent },
-                ]
-              },
-            ]
-          },
+
         ]
       },
+      {
+        path: "vehicle-services", children: [
+          { path: "", component: VehicleComponent },
+          { path: ":id", component: VehicleServiceComponent },
+        ]
+      },
+      {
+        path: "service-parts", children: [
+          { path: "", component: VehicleServiceComponent },
+          { path: ":id", component: ServicePartsComponent },
+        ]
+      },
+
       {
         path: "**", component: HomeComponent
       },
