@@ -21,8 +21,11 @@ export class VehicleComponent implements OnInit {
   }
 
   deleteThisVehicle() {
-    this.vs.deleteVehicle(this.idKey);
-    this.router.navigate([""]);
+    var answer = confirm("Are you sure you want to delete this vehicle?");
+    if (answer == true) {
+      this.vs.deleteVehicle(this.idKey);
+      this.router.navigate([""]);
+    }
   }
 
 }
