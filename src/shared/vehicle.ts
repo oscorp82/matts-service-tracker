@@ -1,5 +1,5 @@
-export class Vehicle{
+export class Vehicle {
     make: string;
     model: string;
-    year: number;
+    year: string;
 }

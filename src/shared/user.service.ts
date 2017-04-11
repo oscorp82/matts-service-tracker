@@ -8,7 +8,7 @@ export class UserService {
     static NO_LOGIN = new User();
     private userSubject: BehaviorSubject<User> = new BehaviorSubject(UserService.NO_LOGIN);
     public user$: Observable<User> = this.userSubject.asObservable();
-    public user: User;
+    public user: User = new User();
 
     constructor(private af: AngularFire) {
         this.af.auth.subscribe(login => {
@@ -21,6 +21,7 @@ export class UserService {
             } else {
                 var newUser = UserService.NO_LOGIN;
             }
+            console.log("is newUser getting set?", newUser)
             this.user = newUser;
             this.userSubject.next(newUser);
         });

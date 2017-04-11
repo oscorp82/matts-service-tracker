@@ -1,4 +1,13 @@
 <p *ngIf="!user.uid">Welcome!</p>
-<p *ngIf="user.uid">
-  Welcome back!
-</p>
+<p *ngIf="user.uid">Welcome back!</p>
+
+<md-card>
+  <button md-button (click)="addVehicle()"><md-icon>add</md-icon></button>
+  <input type="text" name="inputMessage" placeholder="Make" [(ngModel)]="newMake">
+  <input type="text" name="inputMessage" placeholder="Model" [(ngModel)]="newModel">
+  <input type="text" name="inputMessage" placeholder="Year" [(ngModel)]="newYear">
+</md-card>
+
+<md-card *ngFor="let veh of vehicles">
+  <p>{{veh.make}} - {{veh.model}} - {{veh.year}}</p>
+</md-card>
