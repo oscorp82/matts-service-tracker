@@ -1,2 +1,20 @@
-<button md-button (click)="deleteThisVehicle()"><md-icon>delete</md-icon>Vehicle</button>
 <h3>{{vehicle.make}} - {{vehicle.model}} - {{vehicle.year}}</h3>
+<md-toolbar>
+    Vehicle:
+    <button md-button (click)="deleteThisVehicle()"><md-icon>delete</md-icon></button>
+    <button md-button><md-icon>edit</md-icon></button>
+</md-toolbar>
+<md-toolbar>
+    Service:
+    <button md-button (click)="addVehicleService()"><md-icon>add</md-icon></button>
+</md-toolbar>
+
+<md-card *ngIf="user.uid">
+    <input type="text" name="inputMessage" placeholder="Service Description" [(ngModel)]="newDescrip"> <br>
+    <input type="text" name="inputMessage" placeholder="Date" [(ngModel)]="newDate"> <br>
+    <input type="text" name="inputMessage" placeholder="Cost" [(ngModel)]="newCost"> <br>
+</md-card>
+
+<md-card *ngFor="let service of services">
+    {{service.description}} {{service.date}} {{service.cost}}
+</md-card>

@@ -1,3 +1,4 @@
+import { VehicleSeviceService } from './vehicle-service/vehicle-sevice.service';
 import { VehicleService } from './vehicle/vehicle.service';
 import { UserService } from './../shared/user.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -69,7 +70,7 @@ const firebaseAuthConfig = {
       },
     ])
   ],
-  providers: [UserService, VehicleService],
+  providers: [UserService, VehicleService, VehicleSeviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

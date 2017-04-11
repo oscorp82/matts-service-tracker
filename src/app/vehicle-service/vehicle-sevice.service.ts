@@ -1,4 +1,4 @@
-import { VehicleService } from './../../shared/vehicle-service';
+import { VehicleServiceObj } from './../../shared/vehicle-service';
 import { Vehicle } from './../../shared/vehicle';
 import { UserService } from './../../shared/user.service';
 import { AngularFire } from 'angularfire2';
@@ -16,7 +16,7 @@ export class VehicleSeviceService {
       .map(data => data.reverse());
   }
 
-  addVehicleSerice(vehId: string, service: VehicleService) {
+  addVehicleService(vehId: string, service: VehicleServiceObj) {
     const vehicleSerivces = this.af.database.list(`vehicle-service/${vehId}/services`)
     vehicleSerivces.push({
       description: service.description,
