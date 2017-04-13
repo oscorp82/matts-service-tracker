@@ -1,20 +1,54 @@
-<h3>{{vehicle.make}} - {{vehicle.model}} - {{vehicle.year}}</h3>
-<md-toolbar>
-    Vehicle:
-    <button md-button (click)="deleteThisVehicle()"><md-icon>delete</md-icon></button>
-    <button md-button><md-icon>edit</md-icon></button>
-</md-toolbar>
-<md-toolbar>
-    Service:
-    <button md-button (click)="addVehicleService()"><md-icon>add</md-icon></button>
-</md-toolbar>
-
+<table>
+    <tr>
+        <td>
+            <h3>{{vehicle.make}} - {{vehicle.model}} - {{vehicle.year}}</h3>
+        </td>
+        <td>
+            <md-toolbar>
+                <button md-button (click)="deleteThisVehicle()"><md-icon>delete</md-icon></button>&nbsp;
+                <button md-button><md-icon>edit</md-icon></button> &nbsp;
+            </md-toolbar>
+        </td>
+    </tr>
+</table>
 <md-card *ngIf="user.uid">
-    <input type="text" name="inputMessage" placeholder="Service Description" [(ngModel)]="newDescrip"> <br>
-    <input type="text" name="inputMessage" placeholder="Date" [(ngModel)]="newDate"> <br>
-    <input type="text" name="inputMessage" placeholder="Cost" [(ngModel)]="newCost"> <br>
+    <table>
+        <tr>
+            <td><button md-button (click)="addVehicleService()"><md-icon>add</md-icon></button></td>
+            <td>
+                <table>
+                    <tr>
+                        <td><input type="text" name="inputMessage" placeholder="Service Description" [(ngModel)]="newDescrip"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="inputMessage" placeholder="Date" [(ngModel)]="newDate"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="inputMessage" placeholder="Cost" [(ngModel)]="newCost"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 </md-card>
 
 <md-card *ngFor="let service of services">
-    {{service.description}} {{service.date}} {{service.cost}}
+    <table>
+        <tr>
+            <td><button md-button><md-icon>menu</md-icon></button></td>
+            <td>
+                <table>
+                    <tr>
+                        <td>{{service.description}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{service.date}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{service.cost}}</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 </md-card>

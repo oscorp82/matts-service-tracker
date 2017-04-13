@@ -2,14 +2,31 @@
 <p *ngIf="user.uid">Welcome back!</p>
 
 <md-card *ngIf="user.uid">
-  <input type="text" name="inputMessage" placeholder="Make" [(ngModel)]="newMake"> <br>
-  <input type="text" name="inputMessage" placeholder="Model" [(ngModel)]="newModel"> <br>
-  <input type="text" name="inputMessage" placeholder="Year" [(ngModel)]="newYear"> <br>
-  <button md-button (click)="addVehicle()"><md-icon>add</md-icon></button>
+  <table>
+    <tr>
+      <td><button md-button (click)="addVehicle()"><md-icon>add</md-icon></button></td>
+      <td>
+        <table>
+          <tr>
+            <td><input type="text" name="inputMessage" placeholder="Make" [(ngModel)]="newMake"> </td>
+          </tr>
+          <tr>
+            <td><input type="text" name="inputMessage" placeholder="Model" [(ngModel)]="newModel"></td>
+          </tr>
+          <tr>
+            <td><input type="text" name="inputMessage" placeholder="Year" [(ngModel)]="newYear"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
 </md-card>
 
 <span *ngIf="user.uid">
-  <md-card *ngFor="let veh of vehicles" [routerLink]="veh.$key">
-    <p>{{veh.make}} - {{veh.model}} - {{veh.year}}</p>
+  <md-card *ngFor="let veh of vehicles">
+    <table><tr>
+      <td><button md-button  [routerLink]="veh.$key"><md-icon>menu</md-icon></button></td>
+      <td>{{veh.make}} - {{veh.model}} - {{veh.year}}</td>      
+    </tr></table> 
   </md-card>
 </span>
