@@ -27,6 +27,7 @@ export class VehicleSeviceService {
   }
 
   getVehicleService(vehId: string, servId: string) {    
-    return this.af.database.object(`vehicles-service/${vehId}/vehicles/${servId}`);
+    console.log(`vehicle-service/${vehId}/services/${servId}`);
+    return this.af.database.object(`vehicle-service/${vehId}/services/${servId}`);
   }
 }

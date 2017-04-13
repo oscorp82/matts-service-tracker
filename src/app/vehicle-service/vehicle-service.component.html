@@ -1,3 +1,13 @@
-<p>
-  vehicle-service works!
-</p>
+<h3 *ngIf="user.uid">
+  <table>
+    <tr>
+      <td>{{vehService?.description}}</td>
+    </tr>
+    <tr>
+      <td>{{vehService?.date}}</td>
+    </tr>
+    <tr>
+      <td>{{vehService?.cost}}</td>
+    </tr>
+  </table>
+</h3>
