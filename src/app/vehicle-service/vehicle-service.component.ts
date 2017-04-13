@@ -16,8 +16,11 @@ export class VehicleServiceComponent implements OnInit {
   constructor(private rt: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.partIdKey = this.rt.snapshot.params['pid'];
-    this.vehIdKey = this.rt.snapshot.params['vid'];
+    this.rt.params
+      .subscribe(params => {
+        this.partIdKey = params.pid;
+        this.vehIdKey = params.vid;
+    })
   }
 
 }

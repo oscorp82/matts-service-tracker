@@ -28,7 +28,8 @@ export class VehicleComponent implements OnInit {
   ngOnInit() {
     this.uServ.user$.subscribe(user => this.user = user);
 
-    this.idKey = this.rt.snapshot.params['vid'];
+    //this.idKey = this.rt.snapshot.params['vid'];
+    this.rt.params.subscribe(param => { this.idKey = param.vid })
     this.vs.getVehicle(this.idKey)
       .first()
       .subscribe(veh => this.vehicle = veh);

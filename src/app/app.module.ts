@@ -64,7 +64,6 @@ const firebaseAuthConfig = {
         ]
       },
       { path: "", redirectTo: "/home", pathMatch: 'full' },
-
       {
         path: "**", component: HomeComponent
       },
