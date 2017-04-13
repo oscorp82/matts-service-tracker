@@ -46,24 +46,24 @@ const firebaseAuthConfig = {
     MaterialModule.forRoot(),
     RouterModule.forRoot([
       {
-        path: "", children: [
+        path: "home", children: [
           { path: "", component: HomeComponent },
-          { path: ":id", component: VehicleComponent },
-
+          { path: "vehicle/:vid", component: VehicleComponent },
         ]
       },
       {
-        path: "vehicle-services", children: [
+        path: "vehicle", children: [
           { path: "", component: VehicleComponent },
-          { path: ":id", component: VehicleServiceComponent },
+          { path: ":sid", component: VehicleServiceComponent },
         ]
       },
       {
-        path: "service-parts", children: [
+        path: "service", children: [
           { path: "", component: VehicleServiceComponent },
-          { path: ":id", component: ServicePartsComponent },
+          { path: ":pid", component: ServicePartsComponent },
         ]
       },
+      { path: "", redirectTo: "/home", pathMatch: 'full' },
 
       {
         path: "**", component: HomeComponent

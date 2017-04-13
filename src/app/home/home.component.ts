@@ -39,5 +39,7 @@ export class HomeComponent implements OnInit {
     this.newModel = '';
     this.newYear = '';
   }
-
+  menuSelect() {
+    
+  }
 }

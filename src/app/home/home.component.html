@@ -25,7 +25,7 @@
 <span *ngIf="user.uid">
   <md-card *ngFor="let veh of vehicles">
     <table><tr>
-      <td><button md-button  [routerLink]="veh.$key"><md-icon>menu</md-icon></button></td>
+      <td><button md-button  [routerLink]="['/vehicle', {vid: veh.$key}]"><md-icon>menu</md-icon></button></td>
       <td>{{veh.make}} - {{veh.model}} - {{veh.year}}</td>      
     </tr></table> 
   </md-card>

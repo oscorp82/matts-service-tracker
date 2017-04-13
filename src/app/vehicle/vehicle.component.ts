@@ -28,7 +28,7 @@ export class VehicleComponent implements OnInit {
   ngOnInit() {
     this.uServ.user$.subscribe(user => this.user = user);
 
-    this.idKey = this.rt.snapshot.params['id'];
+    this.idKey = this.rt.snapshot.params['vid'];
     this.vs.getVehicle(this.idKey)
       .first()
       .subscribe(veh => this.vehicle = veh);
@@ -55,5 +55,4 @@ export class VehicleComponent implements OnInit {
     this.newDate = '';
     this.newCost = '';
   }
-
 }

@@ -35,7 +35,7 @@
 <md-card *ngFor="let service of services">
     <table>
         <tr>
-            <td><button md-button><md-icon>menu</md-icon></button></td>
+            <td><button md-button [routerLink]="service.$key"><md-icon>menu</md-icon></button></td>
             <td>
                 <table>
                     <tr>

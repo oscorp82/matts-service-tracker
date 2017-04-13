@@ -9,6 +9,7 @@ import { Injectable } from '@angular/core';
 export class VehicleSeviceService {
 
   user: User;
+
   constructor(private af: AngularFire, private userService: UserService) { }
 
   getVehicleServices(vehId: string) {
@@ -17,11 +18,15 @@ export class VehicleSeviceService {
   }
 
   addVehicleService(vehId: string, service: VehicleServiceObj) {
-    const vehicleSerivces = this.af.database.list(`vehicle-service/${vehId}/services`)
+    const vehicleSerivces = this.af.database.list(`vehicle-service/${vehId}/services`);
     vehicleSerivces.push({
       description: service.description,
       date: service.date,
       cost: service.cost
     })
+  }
+
+  getVehicleService(vehId: string, servId: string) {    
+    return this.af.database.object(`vehicles-service/${vehId}/vehicles/${servId}`);
   }
 }
